@@ -1,0 +1,26 @@
+name: Linux_Container_Monitoring_Workflow
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  DeployProd:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set the target AKS cluster
+        uses: Azure/aks-set-context@v1
+        with:
+          creds: "${{ secrets.AZURE_CREDENTIALS }}"
+          cluster-name: aks-flowlity-global
+          resource-group: rg-flowlity-global
+
+      - name: metabase deployment
+        uses: Azure/k8s-deploy@v1
+        with:
+          manifests: |
+            k8s/metabase-global.yaml
