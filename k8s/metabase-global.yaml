@@ -17,7 +17,7 @@ spec:
         "agentpool": c2r8
       containers:
         - name: metabase
-          image: metabase/metabase:v0.38.3
+          image: metabase/metabase:v0.39.2
           env:
             - name: JAVA_OPTS
               value: "-Xmx5g"
