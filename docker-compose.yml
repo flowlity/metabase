@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   metabase:
-    image: metabase/metabase:v0.38.3
+    image: metabase/metabase:v0.40.1
     container_name: metabase
     restart: "always"
     environment:
