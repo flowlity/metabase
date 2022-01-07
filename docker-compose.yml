@@ -7,9 +7,9 @@ services:
     environment:
       - JAVA_OPTS=-Xmx1g
       - MB_DB_TYPE=postgres
-      - MB_DB_HOST=${DB_HOST}
-      - MB_DB_USER=${DB_USERNAME}
-      - MB_DB_PASS=${DB_PASSWORD}
+      - MB_DB_HOST=${DB_HOST_GLOBAL}
+      - MB_DB_USER=${DB_USERNAME_GLOBAL}
+      - MB_DB_PASS=${DB_PASSWORD_GLOBAL}
       - MB_DB_PORT=5432
       - MB_DB_DBNAME=metabase
     ports:
