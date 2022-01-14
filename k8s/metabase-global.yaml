@@ -17,16 +17,16 @@ spec:
         "agentpool": c2r8
       containers:
         - name: metabase
-          image: metabase/metabase:v0.41.0
+          image: metabase/metabase:v0.41.5
           env:
             - name: JAVA_OPTS
               value: "-Xmx5g"
             - name: MB_DB_TYPE
               value: postgres
-            - name: MB_DB_HOST
-              value: psql-server-global.postgres.database.azure.com
+            - name: MB_DB_HOSTd
+              value: psql-flexible.postgres.database.azure.com
             - name: MB_DB_USER
-              value: postgres@psql-server-global
+              value: postgres
             - name: MB_DB_PASS
               value: 2JoGCygryFmb0fuG
             - name: MB_DB_PORT
