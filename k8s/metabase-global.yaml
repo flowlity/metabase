@@ -23,7 +23,7 @@ spec:
               value: "-Xmx5g"
             - name: MB_DB_TYPE
               value: postgres
-            - name: MB_DB_HOSTd
+            - name: MB_DB_HOST
               value: psql-flexible.postgres.database.azure.com
             - name: MB_DB_USER
               value: postgres
