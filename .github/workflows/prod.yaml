@@ -1,0 +1,25 @@
+name: Linux_Container_Monitoring_Workflow
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  DeployProd:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set the target AKS cluster
+        uses: Azure/aks-set-context@v1
+        with:
+          creds: "${{ secrets.AZURE_CREDENTIALS }}"
+          cluster-name: aks-flowlity-global
+          resource-group: rg-flowlity-global
+      - uses: azure/setup-helm@v1
+        with:
+          version: "3.7.2"
+        id: install
+      - name: K8s deployment
+        run: helm upgrade --install metabase --namespace metabase --set postgres.host=${{ secrets.DB_HOST_GLOBAL }} --set postgres.user=${{ secrets.DB_USER_GLOBAL }} --set postgres.password=${{ secrets.DB_PASSWORD_GLOBAL }} k8s
