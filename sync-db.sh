@@ -19,7 +19,7 @@ REMOTE_DB_NAME="metabase"
 
 echo "Remote database password:"
 read -s REMOTE_DB_PW
-# REMOTE_DB_PW="2JoGCygryFmb0fuG"
+# REMOTE_DB_PW="AlOiDECKITymIta5814RelDeRMArIneADP"
 
 # Start progrecess
 echo -e "On processing ..."
